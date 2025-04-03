@@ -3,7 +3,7 @@ const Button = (props)=>{
 
     return (
 
-        <button className="btn btn-nav" onClick={buttonData.handler}>
+        <button className={buttonData.classNames} onClick={buttonData.handler}>
             {buttonData.text}
         </button>
 

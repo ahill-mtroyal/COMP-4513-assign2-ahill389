@@ -1,9 +1,10 @@
 import Button from './button'
 const Nav = (props)=>{
     //Data for respective buttons
-    function ButtonData(text, handler){
+    function ButtonData(text, handler, classNames){
         this.text = text;
         this.handler = handler;
+        this.classNames = `btn ${classNames}`;
     }
 
     //placeholder handler function
@@ -11,12 +12,12 @@ const Nav = (props)=>{
         console.log(`${e.target.textContent} was clicked`)
     }
 
-    const artists = new ButtonData('Artists',placeHolder)
-    const paintings = new ButtonData('Paintings',placeHolder)
-    const galleries = new ButtonData('Galleries',placeHolder)
-    const genres = new ButtonData('Genres',placeHolder)
-    const favourites = new ButtonData('Favourites',placeHolder)
-    const about = new ButtonData('About',placeHolder)
+    const artists = new ButtonData('Artists',placeHolder,'btn-nav')
+    const paintings = new ButtonData('Paintings',placeHolder,'btn-nav')
+    const galleries = new ButtonData('Galleries',placeHolder,'btn-nav')
+    const genres = new ButtonData('Genres',placeHolder,'btn-nav')
+    const favourites = new ButtonData('Favourites',placeHolder,'btn-nav')
+    const about = new ButtonData('About',placeHolder,'btn-nav')
 
     return(
         <nav>
