@@ -1,4 +1,4 @@
-import Nav from "./nav";
+import Nav from "./Nav";
 
 //toolbar components, meant to be at the top of the page.
 //contains a logo, title header, then nav buttons

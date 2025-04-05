@@ -1,4 +1,4 @@
-import Button from './button'
+import Button from './Button'
 const Nav = (props)=>{
     //Data for respective buttons
     function ButtonData(text, handler, classNames){

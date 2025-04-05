@@ -1,14 +1,34 @@
-import { useState, useEffect } from 'react'
-import Toolbar from './components/toolbar'
+import { useState, useEffect, createContext } from 'react'
 import './App.css'
 import getAllData from './modules/data'
+import Toolbar from './components/toolbar'
+import Gallery from './components/gallery/Gallery'
+
+export const Context = createContext([]);
 
 function App() {
   const [artists, setArtists] = useState([])
+  const [selectedArtist, setSelectedArtist] = useState([])
   const [galleries, setGalleries] = useState([])
+  const [selectedGallery, setSelectedGallery] = useState(null)
+  const [galleryFavourites, setGalleryFavourites] = useState([])
   const [genres, setGenres] = useState([])
   const [paintings, setPaintings] = useState([])
-  const [oading, setLoading] = useState(false)
+  const [selectedPaintings, setSelectedPaintings] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  //1 big context object because i'm lazy
+  const contextObj = {
+    artists:[artists, setArtists],
+    selectedArtist:[selectedArtist, setSelectedArtist],
+    galleries:[galleries, setGalleries],
+    selectedGallery: [selectedGallery, setSelectedGallery],
+    galleryFavourites: [galleryFavourites, setGalleryFavourites],
+    genres:[genres, setGenres],
+    paintings:[paintings, setPaintings],
+    selectedPaintings:[selectedPaintings, setSelectedPaintings],
+    loading:[loading, setLoading]
+  }
 
   //data fetching
   localStorage.clear(); //testing
@@ -23,7 +43,10 @@ function App() {
 
   return(
     <main>
+    <Context.Provider value={contextObj}>
       <Toolbar />
+      <Gallery />
+    </Context.Provider>
     </main>
   )
 
