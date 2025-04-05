@@ -3,12 +3,14 @@ import './App.css'
 import getAllData from './modules/data'
 import Toolbar from './components/toolbar'
 import Gallery from './components/gallery/Gallery'
+import Artists from './components/artists/Artists'
 
 export const Context = createContext([]);
 
 function App() {
   const [artists, setArtists] = useState([])
-  const [selectedArtist, setSelectedArtist] = useState([])
+  const [selectedArtist, setSelectedArtist] = useState(null)
+  const [artistsFavourites, setArtistsFavourites] = useState([])
   const [galleries, setGalleries] = useState([])
   const [selectedGallery, setSelectedGallery] = useState(null)
   const [galleryFavourites, setGalleryFavourites] = useState([])
@@ -21,6 +23,7 @@ function App() {
   const contextObj = {
     artists:[artists, setArtists],
     selectedArtist:[selectedArtist, setSelectedArtist],
+    artistsFavourites:[artistsFavourites, setArtistsFavourites],
     galleries:[galleries, setGalleries],
     selectedGallery: [selectedGallery, setSelectedGallery],
     galleryFavourites: [galleryFavourites, setGalleryFavourites],
@@ -45,7 +48,7 @@ function App() {
     <main>
     <Context.Provider value={contextObj}>
       <Toolbar />
-      <Gallery />
+      <Artists />
     </Context.Provider>
     </main>
   )

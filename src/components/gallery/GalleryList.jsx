@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { Context } from "../../App";
 
+//displays list of gallery buttons that update the selectedGallery state with the respective gallery
 const GalleryList = (props)=>{
     const [galleries, setGalleries] = useContext(Context).galleries
     const [selectedGallery, setSelectedGallery] = useContext(Context).selectedGallery
@@ -42,6 +43,7 @@ const GalleryList = (props)=>{
         setSelectedPaintings(galleryPaintings)
     }
 
+    //build list items
     const listItems = list.map(i=>
         <li key={i.galleryId}><Button buttonData={{
             className:'btn btn-list',

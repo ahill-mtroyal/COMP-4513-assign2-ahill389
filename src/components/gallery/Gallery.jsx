@@ -1,6 +1,6 @@
 import GalleryList from "./galleryList"
 import GalleryInfo from "./GalleryInfo"
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Context } from "../../App";
 import PaintingList from "../paintings/PaintingList";
 

@@ -1,3 +1,5 @@
+import ArtistList from "./ArtistsList";
+import ArtistInfo from "./ArtistsInfo";
 import { useContext } from "react";
 import { Context } from "../../App";
 import PaintingList from "../paintings/PaintingList";
@@ -7,7 +9,9 @@ const Artists = (props)=>{
     const [selectedArtist, setSelectedArtist] = useContext(Context).selectedArtist
     return(
         <article>
-            
+            <ArtistList />
+            {selectedArtist && <ArtistInfo />}
+            {selectedArtist && <PaintingList />}
         </article>
     )
 }
