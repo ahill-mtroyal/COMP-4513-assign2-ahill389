@@ -13,6 +13,7 @@ async function getAllData(setters){
     getGalleries(setters.galleries,setters.loading)
     getGenres(setters.genres)
     getPaintings(setters.paintings)
+    getPaintingGenres(setters.paintingGenres)
     console.log(`data loaded`)
     setters.loading(false)
 }
@@ -24,7 +25,7 @@ async function fetchArtists(setter) {
     localStorage.artists = data
   }
 
-//galleries include loading state setter, as is the first screen shown on the app
+//galleries includes loading state setter, as is the first screen shown on the app
 async function fetchGalleries(setter,loading) {
     loading(true)
     const { data } = await db.from("galleries").select('*');
@@ -43,6 +44,12 @@ async function fetchGenres(setter) {
     const { data } = await db.from("genres").select('*');
     setter(data);
     localStorage.paintings = data
+  }
+
+  async function fetchPaintingGenres(setter) {
+    const { data } = await db.from("paintingGenres").select('*');
+    setter(data);
+    localStorage.paintingGenres = data
   }
 
 //get functions - checks local storage first, otherwise calls fetch function
@@ -76,6 +83,14 @@ function getGenres(setter){
         setter(localStorage.genres)
     } else {
         fetchGenres(setter)
+    }
+}
+
+function getPaintingGenres(setter){
+    if (localStorage.paintingGenres){
+        setter(localStorage.paintingGenres)
+    } else {
+        fetchPaintingGenres(setter)
     }
 }
 

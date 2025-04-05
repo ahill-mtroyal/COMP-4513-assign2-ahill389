@@ -4,6 +4,7 @@ import getAllData from './modules/data'
 import Toolbar from './components/toolbar'
 import Gallery from './components/gallery/Gallery'
 import Artists from './components/artists/Artists'
+import Genres from './components/genres/Genres'
 
 export const Context = createContext([]);
 
@@ -15,7 +16,10 @@ function App() {
   const [selectedGallery, setSelectedGallery] = useState(null)
   const [galleryFavourites, setGalleryFavourites] = useState([])
   const [genres, setGenres] = useState([])
+  const [selectedGenre, setSelectedGenre] = useState(null)
+  const [genresFavourites, setGenresFavourites] = useState([])
   const [paintings, setPaintings] = useState([])
+  const [paintingGenres, setPaintingGenres] = useState([])
   const [selectedPaintings, setSelectedPaintings] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -28,7 +32,10 @@ function App() {
     selectedGallery: [selectedGallery, setSelectedGallery],
     galleryFavourites: [galleryFavourites, setGalleryFavourites],
     genres:[genres, setGenres],
+    selectedGenre:[selectedGenre, setSelectedGenre],
+    genresFavourites:[genresFavourites, setGenresFavourites],
     paintings:[paintings, setPaintings],
+    paintingGenres:[paintingGenres, setPaintingGenres],
     selectedPaintings:[selectedPaintings, setSelectedPaintings],
     loading:[loading, setLoading]
   }
@@ -41,6 +48,7 @@ function App() {
       galleries:setGalleries,
       genres:setGenres,
       paintings:setPaintings,
+      paintingGenres:setPaintingGenres,
       loading:setLoading})
   }, []);
 
@@ -48,7 +56,7 @@ function App() {
     <main>
     <Context.Provider value={contextObj}>
       <Toolbar />
-      <Artists />
+      <Genres />
     </Context.Provider>
     </main>
   )

@@ -9,7 +9,7 @@ const Gallery = (props)=>{
     const [selectedGallery, setSelectedGallery] = useContext(Context).selectedGallery
 
     return(
-        <article>
+        <article className='gallery-view'>
             <GalleryList />
             {selectedGallery && <GalleryInfo />}
             {selectedGallery && <PaintingList />}
