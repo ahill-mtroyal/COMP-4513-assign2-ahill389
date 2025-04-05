@@ -7,6 +7,8 @@ import { Context } from "../../App";
 const GalleryList = (props)=>{
     const [galleries, setGalleries] = useContext(Context).galleries
     const [selectedGallery, setSelectedGallery] = useContext(Context).selectedGallery
+    const [paintings, setPaintings] = useContext(Context).paintings
+    const [selectedPaintings, setSelectedPaintings] = useContext(Context).selectedPaintings
     const [list, setList] = useState(galleries)
 
     //I don't want to admit how long this took me to figure out - seems simple in hindsight
@@ -35,10 +37,9 @@ const GalleryList = (props)=>{
     //handler for selected gallery
     const selectGallery = e=>{
         const selected = galleries.find(g=>g.galleryId==e.target.value)
-        console.log(e.target.value)
-        console.log(selected)
-        console.log(`${selected.galleryName} selected!`)
-        setSelectedGallery(selected);
+        const galleryPaintings = paintings.filter(p=>p.galleryId==e.target.value)
+        setSelectedGallery(selected)
+        setSelectedPaintings(galleryPaintings)
     }
 
     const listItems = list.map(i=>
