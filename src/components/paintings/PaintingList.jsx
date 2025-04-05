@@ -12,6 +12,7 @@ const PaintingList = (props)=>{
 
     return(
         <div className='painting-list'>
+            <h2>Paintings</h2>
             <ul>
                 {listItems}
             </ul>
