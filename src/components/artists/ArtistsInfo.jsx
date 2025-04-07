@@ -6,14 +6,28 @@ import ArtistsInfoCard from "./ArtistsInfoCard";
 const ArtistInfo = (props)=>{
     const [selectedArtist, setSelectedArtist] = useContext(Context).selectedArtist
     const [artistsFavourites, setArtistsFavourites] = useContext(Context).artistsFavourites
-    const addToFavourites = ()=>{
-        console.log(`${selectedArtist.lastName} added to favourites`)
+    
+    //handle favouriting
+    const favourited = artistsFavourites.includes(selectedArtist)?true:false
+
+    const addToFavourites = e=>{
+        let newFavourites = [...artistsFavourites]
+
+        if(!favourited){
+            console.log(`${selectedArtist.firstName} ${selectedArtist.lastName} was favourited.`)
+            newFavourites.push(selectedArtist)
+            setArtistsFavourites(newFavourites)
+        } else if (favourited){
+            console.log(`${selectedArtist.firstName} ${selectedArtist.lastName} removed from favourites.`)
+            newFavourites = artistsFavourites.filter(a=>a.artistId!=selectedArtist.artistId)
+            setArtistsFavourites(newFavourites)
+        }
     }
 
     return(
         <div className='artist-info'>
             <ArtistsInfoCard />
-            <AddFavourite handler={addToFavourites}/>
+            <AddFavourite handler={addToFavourites} favourited={favourited} id={selectedArtist.artistId}/>
         </div>
     )
 }

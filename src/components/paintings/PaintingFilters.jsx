@@ -73,8 +73,6 @@ const PaintingFilters = (props)=>{
                     if(isNaN(low)){low=0;setYearLowState("")}
                     if(isNaN(high)){high=10000;setYearHighState("")}
                 }
-                console.log(low)
-                console.log(high)
                 newPaintings = paintings.filter(p=>p.yearOfWork>=low&&p.yearOfWork<=high)
                 setSelectedPaintings(newPaintings)
                 break;

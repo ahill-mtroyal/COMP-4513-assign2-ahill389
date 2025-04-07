@@ -8,9 +8,24 @@ import 'leaflet/dist/leaflet.css';
 const GalleryInfo = (props)=>{
     const [selectedGallery, setSelectedGallery] = useContext(Context).selectedGallery
     const [galleryFavourites, setGalleryFavourites] = useContext(Context).galleryFavourites
-    const addToFavourites = ()=>{
-        console.log(`${selectedGallery.galleryName} added to favourites`)
+
+    //handle favouriting
+    const favourited = galleryFavourites.includes(selectedGallery)?true:false
+
+    const addToFavourites = e=>{
+        let newFavourites = [...galleryFavourites]
+
+        if(!favourited){
+            console.log(`${selectedGallery.galleryName} was favourited.`)
+            newFavourites.push(selectedGallery)
+            setGalleryFavourites(newFavourites)
+        } else if (favourited){
+            console.log(`${selectedGallery.galleryName} removed from favourites.`)
+            newFavourites = galleryFavourites.filter(g=>g.galleryId!=selectedGallery.galleryId)
+            setGalleryFavourites(newFavourites)
+        }
     }
+
     //position for map 
     const mapPosition = [selectedGallery.latitude,selectedGallery.longitude]
     //position updater for map on state change
@@ -24,7 +39,7 @@ const GalleryInfo = (props)=>{
     return(
         <div className='gallery-info'>
             <GalleryInfoCard />
-            <AddFavourite handler={addToFavourites}/>
+            <AddFavourite handler={addToFavourites} favourited={favourited} id={selectedGallery.galleryId}/>
             <MapContainer center={mapPosition} zoom={13} scrollWheelZoom={false} style={{height:'20vh', width: '600px'}}>
                 <ChangePosition center={mapPosition}/>
                 <TileLayer

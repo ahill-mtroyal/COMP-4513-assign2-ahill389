@@ -22,7 +22,7 @@ const Nav = (props)=>{
     const paintings = new ButtonData('Paintings',swapView,'btn-nav')
     const galleries = new ButtonData('Galleries',swapView,'btn-nav')
     const genres = new ButtonData('Genres',swapView,'btn-nav')
-    const favourites = new ButtonData('Favourites',swapView,'btn-nav')
+    const favourites = new ButtonData('Favourites',()=>{},'btn-nav')
     const about = new ButtonData('About',swapView,'btn-nav')
 
     return(

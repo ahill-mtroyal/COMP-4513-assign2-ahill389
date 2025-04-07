@@ -23,6 +23,7 @@ function App() {
   const [paintings, setPaintings] = useState([])
   const [paintingGenres, setPaintingGenres] = useState([])
   const [selectedPaintings, setSelectedPaintings] = useState([])
+  const [paintingFavourites, setPaintingFavourites] = useState([])
   const [loading, setLoading] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
   const [pageView,setPageView] = useState('Galleries')
@@ -42,6 +43,7 @@ function App() {
     paintings:[paintings, setPaintings],
     paintingGenres:[paintingGenres, setPaintingGenres],
     selectedPaintings:[selectedPaintings, setSelectedPaintings],
+    paintingFavourites:[paintingFavourites, setPaintingFavourites],
     loading:[loading, setLoading],
     loggedIn:[loggedIn,setLoggedIn],
     pageView:[pageView,setPageView]

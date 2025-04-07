@@ -23,7 +23,6 @@ const ArtistList = (props)=>{
             else {return 0}
         })
         //set list state
-        console.log(sortedList)
         setList(sortedList)
     }, [artists])
 

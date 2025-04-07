@@ -4,15 +4,31 @@ import AddFavourite from "../AddFavourite";
 
 const GenresInfo = (props)=>{
     const [selectedGenre,setSelectedGenre] = useContext(Context).selectedGenre
-    const addToFavourites = ()=>{
-        console.log(`${selectedGenre.genreName} added to favourites`)
+    const [genresFavourites, setGenresFavourites] = useContext(Context).genresFavourites
+
+    //handle favouriting
+    const favourited = genresFavourites.includes(selectedGenre)?true:false
+
+    const addToFavourites = e=>{
+        let newFavourites = [...genresFavourites]
+
+        if(!favourited){
+            console.log(`${selectedGenre.genreName} was favourited.`)
+            newFavourites.push(selectedGenre)
+            setGenresFavourites(newFavourites)
+        } else if (favourited){
+            console.log(`${selectedGenre.genreName} removed from favourites.`)
+            newFavourites = genresFavourites.filter(g=>g.genreId!=selectedGenre.genreId)
+            setGenresFavourites(newFavourites)
+        }
     }
+
     return(
         <div className='genre-info'>
             <h2>{selectedGenre.genreName}</h2>
             <p><a href={selectedGenre.wikiLink}>Wikipedia</a></p>
             <p><span className='genre-description'>{selectedGenre.description}</span></p>
-            <AddFavourite handler={addToFavourites}/>
+            <AddFavourite handler={addToFavourites} favourited={favourited} id={selectedGenre.genreId}/>
         </div>
     )
 }
