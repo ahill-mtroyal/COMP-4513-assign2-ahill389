@@ -5,6 +5,7 @@ import Toolbar from './components/toolbar'
 import Gallery from './components/gallery/Gallery'
 import Artists from './components/artists/Artists'
 import Genres from './components/genres/Genres'
+import Paintings from './components/paintings/Paintings'
 
 export const Context = createContext([]);
 
@@ -23,7 +24,7 @@ function App() {
   const [selectedPaintings, setSelectedPaintings] = useState([])
   const [loading, setLoading] = useState(false)
 
-  //1 big context object because i'm lazy
+  //1 big context object because I'm lazy
   const contextObj = {
     artists:[artists, setArtists],
     selectedArtist:[selectedArtist, setSelectedArtist],
@@ -56,7 +57,7 @@ function App() {
     <main>
     <Context.Provider value={contextObj}>
       <Toolbar />
-      <Genres />
+      <Paintings />
     </Context.Provider>
     </main>
   )
