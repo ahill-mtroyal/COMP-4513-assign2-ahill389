@@ -10,7 +10,7 @@ const ArtistList = (props)=>{
     const [selectedArtist, setSelectedArtist] = useContext(Context).selectedArtist
     const [paintings, setPaintings] = useContext(Context).paintings
     const [selectedPaintings, setSelectedPaintings] = useContext(Context).selectedPaintings
-    const [list, setList] = useState(artists)
+    const [list, setList] = useState([])
 
     //This useEffect populates the initial list state when artist is received
     useEffect(()=>{
@@ -23,6 +23,7 @@ const ArtistList = (props)=>{
             else {return 0}
         })
         //set list state
+        console.log(sortedList)
         setList(sortedList)
     }, [artists])
 

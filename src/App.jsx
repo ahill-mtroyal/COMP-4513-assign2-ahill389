@@ -6,6 +6,7 @@ import Gallery from './components/gallery/Gallery'
 import Artists from './components/artists/Artists'
 import Genres from './components/genres/Genres'
 import Paintings from './components/paintings/Paintings'
+import Login from './Login'
 
 export const Context = createContext([]);
 
@@ -23,6 +24,9 @@ function App() {
   const [paintingGenres, setPaintingGenres] = useState([])
   const [selectedPaintings, setSelectedPaintings] = useState([])
   const [loading, setLoading] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [pageView,setPageView] = useState('Galleries')
+  
 
   //1 big context object because I'm lazy
   const contextObj = {
@@ -38,7 +42,9 @@ function App() {
     paintings:[paintings, setPaintings],
     paintingGenres:[paintingGenres, setPaintingGenres],
     selectedPaintings:[selectedPaintings, setSelectedPaintings],
-    loading:[loading, setLoading]
+    loading:[loading, setLoading],
+    loggedIn:[loggedIn,setLoggedIn],
+    pageView:[pageView,setPageView]
   }
 
   //data fetching
@@ -56,8 +62,12 @@ function App() {
   return(
     <main>
     <Context.Provider value={contextObj}>
-      <Toolbar />
-      <Paintings />
+      {!(loggedIn) && <Login />}
+      {loggedIn && <Toolbar />}
+      {loggedIn&&pageView==="Artists" && <Artists />}
+      {loggedIn&&pageView==="Paintings" && <Paintings />}
+      {loggedIn&&pageView==="Galleries" && <Gallery />}
+      {loggedIn&&pageView==="Genres" && <Genres />}
     </Context.Provider>
     </main>
   )

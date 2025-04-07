@@ -1,23 +1,29 @@
 import Button from './Button'
+import { useContext } from 'react'
+import { Context } from '../App'
+
 const Nav = (props)=>{
+    const [pageView,setPageView] = useContext(Context).pageView
+
     //Data for respective buttons
     function ButtonData(text, handler, classNames){
         this.text = text;
         this.handler = handler;
-        this.classNames = `btn ${classNames}`;
+        this.classNames = `btn ${classNames}`
+        this.id = text
     }
 
     //placeholder handler function
-    const placeHolder = e=>{
-        console.log(`${e.target.textContent} was clicked`)
+    const swapView = e=>{
+        setPageView(e.target.value)
     }
 
-    const artists = new ButtonData('Artists',placeHolder,'btn-nav')
-    const paintings = new ButtonData('Paintings',placeHolder,'btn-nav')
-    const galleries = new ButtonData('Galleries',placeHolder,'btn-nav')
-    const genres = new ButtonData('Genres',placeHolder,'btn-nav')
-    const favourites = new ButtonData('Favourites',placeHolder,'btn-nav')
-    const about = new ButtonData('About',placeHolder,'btn-nav')
+    const artists = new ButtonData('Artists',swapView,'btn-nav')
+    const paintings = new ButtonData('Paintings',swapView,'btn-nav')
+    const galleries = new ButtonData('Galleries',swapView,'btn-nav')
+    const genres = new ButtonData('Genres',swapView,'btn-nav')
+    const favourites = new ButtonData('Favourites',swapView,'btn-nav')
+    const about = new ButtonData('About',swapView,'btn-nav')
 
     return(
         <nav>
