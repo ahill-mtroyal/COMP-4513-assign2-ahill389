@@ -14,11 +14,9 @@ const ArtistInfo = (props)=>{
         let newFavourites = [...artistsFavourites]
 
         if(!favourited){
-            console.log(`${selectedArtist.firstName} ${selectedArtist.lastName} was favourited.`)
             newFavourites.push(selectedArtist)
             setArtistsFavourites(newFavourites)
         } else if (favourited){
-            console.log(`${selectedArtist.firstName} ${selectedArtist.lastName} removed from favourites.`)
             newFavourites = artistsFavourites.filter(a=>a.artistId!=selectedArtist.artistId)
             setArtistsFavourites(newFavourites)
         }

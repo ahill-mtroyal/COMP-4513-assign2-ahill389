@@ -7,6 +7,7 @@ import Artists from './components/artists/Artists'
 import Genres from './components/genres/Genres'
 import Paintings from './components/paintings/Paintings'
 import Login from './Login'
+import Modal from './components/modals/Modal'
 
 export const Context = createContext([]);
 
@@ -27,6 +28,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
   const [pageView,setPageView] = useState('Galleries')
+  const [modal,setModal] = useState(null)
   
 
   //1 big context object because I'm lazy
@@ -46,7 +48,8 @@ function App() {
     paintingFavourites:[paintingFavourites, setPaintingFavourites],
     loading:[loading, setLoading],
     loggedIn:[loggedIn,setLoggedIn],
-    pageView:[pageView,setPageView]
+    pageView:[pageView,setPageView],
+    modal:[modal,setModal]
   }
 
   //data fetching
@@ -64,6 +67,7 @@ function App() {
   return(
     <main>
     <Context.Provider value={contextObj}>
+      {modal&&modal}
       {!(loggedIn) && <Login />}
       {loggedIn && <Toolbar />}
       {loggedIn&&pageView==="Artists" && <Artists />}

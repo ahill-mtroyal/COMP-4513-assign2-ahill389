@@ -10,10 +10,14 @@ const GalleryList = (props)=>{
     const [selectedGallery, setSelectedGallery] = useContext(Context).selectedGallery
     const [paintings, setPaintings] = useContext(Context).paintings
     const [selectedPaintings, setSelectedPaintings] = useContext(Context).selectedPaintings
-    const [list, setList] = useState(galleries)
+    const [list, setList] = useState(galleries.sort((a,b)=>{
+        if (a.galleryName > b.galleryName) {return 1}
+        else if (a.galleryName < b.galleryName) {return -1}
+        else {return 0}
+    }))
 
     //I don't want to admit how long this took me to figure out - seems simple in hindsight
-    //This useEffect populates the initial list state when galleries is received (has to wait for DB)
+    //This useEffect populates the initial list state when galleries is received (if has to wait for DB)
     useEffect(()=>{
         //sort list
         const sortedList = galleries.sort((a,b)=>{

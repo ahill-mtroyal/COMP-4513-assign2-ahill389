@@ -13,11 +13,9 @@ const GenresInfo = (props)=>{
         let newFavourites = [...genresFavourites]
 
         if(!favourited){
-            console.log(`${selectedGenre.genreName} was favourited.`)
             newFavourites.push(selectedGenre)
             setGenresFavourites(newFavourites)
         } else if (favourited){
-            console.log(`${selectedGenre.genreName} removed from favourites.`)
             newFavourites = genresFavourites.filter(g=>g.genreId!=selectedGenre.genreId)
             setGenresFavourites(newFavourites)
         }

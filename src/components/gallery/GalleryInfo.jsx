@@ -16,11 +16,9 @@ const GalleryInfo = (props)=>{
         let newFavourites = [...galleryFavourites]
 
         if(!favourited){
-            console.log(`${selectedGallery.galleryName} was favourited.`)
             newFavourites.push(selectedGallery)
             setGalleryFavourites(newFavourites)
         } else if (favourited){
-            console.log(`${selectedGallery.galleryName} removed from favourites.`)
             newFavourites = galleryFavourites.filter(g=>g.galleryId!=selectedGallery.galleryId)
             setGalleryFavourites(newFavourites)
         }
