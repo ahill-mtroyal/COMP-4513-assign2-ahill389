@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Context } from "../../App"
 import AddFavourite from "../AddFavourite"
+import ColourBox from "./ColourBox"
 
 const PaintingCard = (props)=>{
     const [artists,setArtists] = useContext(Context).artists
@@ -23,6 +24,9 @@ const PaintingCard = (props)=>{
             setPaintingFavourites(newFavourites)
         }
     }
+
+    const json = JSON.parse(painting.jsonAnnotations)
+    const colourArray = json.dominantColors
 
     return(
         <div className='painting-card'>
@@ -59,6 +63,11 @@ const PaintingCard = (props)=>{
                 {painting.wikiLink&&<span><a href={painting.wikiLink}>Wiki</a></span>}
                 <span>{painting.copyrightText}</span><br/>
                 <span>{painting.description}</span>
+
+                <div className='dominant-colours'>
+                    <h3>Dominant Colours</h3>
+                    {colourArray.map(j=><ColourBox name={j.name} key={j.web} color={j.web}/>)}
+                </div>
             </div>            
         </div>
     )

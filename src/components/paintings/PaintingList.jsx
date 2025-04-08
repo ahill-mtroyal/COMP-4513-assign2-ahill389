@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext,useEffect } from "react"
 import { Context } from "../../App"
 import PaintingThumb from "./PaintingThumb"
 import Button from "../Button"
@@ -7,6 +7,7 @@ const PaintingList = (props)=>{
     const [selectedPaintings, setSelectedPaintings] = useContext(Context).selectedPaintings
     const [artists, setArtists] = useContext(Context).artists
     const [galleries, setGalleries] = useContext(Context).galleries
+
     const listItems = selectedPaintings.map(p=>
         <li key={p.paintingId}>
             <PaintingThumb painting={p}/>

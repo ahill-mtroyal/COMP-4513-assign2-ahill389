@@ -85,8 +85,8 @@ const PaintingFilters = (props)=>{
     //set painting list to default (all paintings)
     useEffect(()=>{
         newPaintings = paintings.sort((a,b)=>{
-            if (a.yearOfWork > b.yearOfWork) {return 1}
-            else if (a.yearOfWork < b.yearOfWork) {return -1}
+            if (a.title > b.title) {return 1}
+            else if (a.title < b.title) {return -1}
             else {return 0}
         })
         setSelectedPaintings(newPaintings)
@@ -147,16 +147,16 @@ const PaintingFilters = (props)=>{
                 </div>
 
                 <Button buttonData={{
-                    classNames:'btn btn-clear-form',
-                    id: '',
-                    handler: onClear,
-                    text: 'Clear'
-                }}/>
-                <Button buttonData={{
                     classNames:'btn btn-submit-filter',
                     id: '',
                     handler: onFilter,
                     text: 'Filter'
+                }}/>
+                <Button buttonData={{
+                    classNames:'btn btn-clear-form',
+                    id: '',
+                    handler: onClear,
+                    text: 'Clear'
                 }}/>
                 
             </form>

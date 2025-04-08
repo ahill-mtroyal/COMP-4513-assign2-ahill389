@@ -49,8 +49,6 @@ const ModalFavourites = (props)=>{
                 else {return 0}
             })
         )
-        //uses selected paintings to simply import paintinglist component
-        setSelectedPaintings(paintingFavourites)
     },[])
 
     //list reversers
