@@ -1,12 +1,12 @@
 {
   "name": "assign2",
-  "homepage": "https://github.com/ahill-mtroyal/COMP-4513-assign2-ahill389",
+  "homepage": "https://ahill-mtroyal.github.io/COMP-4513-assign2-ahill389/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
