@@ -12,7 +12,7 @@ const Paintings = (props)=>{
     }, [paintings])
 
     return(
-        <article className='painting-view'>
+        <article className='bg-white/50 h-4/5 w-3/4 rounded-lg text-black grid grid-cols-4 grid-rows-1 gap-4'>
             <PaintingFilters />
             <PaintingList />
         </article>

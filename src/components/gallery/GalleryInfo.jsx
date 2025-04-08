@@ -35,21 +35,24 @@ const GalleryInfo = (props)=>{
     }
 
     return(
-        <div className='gallery-info'>
+        <div className='relative'>
             <GalleryInfoCard />
             <AddFavourite handler={addToFavourites} favourited={favourited} id={selectedGallery.galleryId}/>
-            <MapContainer center={mapPosition} zoom={13} scrollWheelZoom={false} style={{height:'20vh', width: '600px'}}>
-                <ChangePosition center={mapPosition}/>
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={mapPosition}>
-                    <Popup>
-                        {selectedGallery.galleryName}<br /> {selectedGallery.galleryAddress}, {selectedGallery.galleryCity}, {selectedGallery.galleryCountry}
-                    </Popup>
-                </Marker>
-            </MapContainer>
+            <div className='flex w-full justify-center items-center'>
+                <MapContainer center={mapPosition} zoom={13} scrollWheelZoom={false} style={{height:'20vh', width: '600px'}}>
+                    <ChangePosition center={mapPosition}/>
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={mapPosition}>
+                        <Popup>
+                            {selectedGallery.galleryName}<br /> {selectedGallery.galleryAddress}, {selectedGallery.galleryCity}, {selectedGallery.galleryCountry}
+                        </Popup>
+                    </Marker>
+                </MapContainer>
+            </div>
+            
         </div>
     )
 }

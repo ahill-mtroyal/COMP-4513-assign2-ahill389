@@ -30,7 +30,7 @@ const PaintingCard = (props)=>{
 
     return(
         <div className='painting-card'>
-            <img className='painting-img' src={`COMP-4513-assign2-ahill389/paintings/full/${painting.imageFileName}.jpg`} alt={painting.title}/>
+            <img className='' src={`COMP-4513-assign2-ahill389/paintings/full/${painting.imageFileName}.jpg`} alt={painting.title}/>
             <AddFavourite handler={addToFavourites} favourited={favourited} id={painting.paintingId}/>
             <div>
                 <strong>{painting.title}</strong>

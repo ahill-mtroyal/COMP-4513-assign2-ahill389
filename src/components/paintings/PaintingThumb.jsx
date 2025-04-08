@@ -17,14 +17,14 @@ const PaintingThumb = (props)=>{
     } 
 
     return(
-        <div className='painting-card-small'>
-            <img className='painting-thumb' src={`COMP-4513-assign2-ahill389/paintings/square/${painting.imageFileName}.jpg`} alt={painting.title} onClick={paintingModal} style={{height:'100px', width:'100px'}}/><br/>
-            <strong><i>{painting.title}</i></strong><br/>
-            <span>{`${artist.firstName} ${artist.lastName}`}</span><br/>
-            <span>{painting.yearOfWork}</span><br/>
-            <span>{gallery.galleryName}</span><br/>
-            <span>{painting.medium}</span><br/>
-            <span>{`${painting.width} x ${painting.height}`}</span>
+        <div className='ml-5 mr-5 mb-5 w-32 flex flex-wrap h-100 overflow-hidden bg-white/50 rounded-xl'>
+            <img className='painting-thumb' src={`COMP-4513-assign2-ahill389/paintings/square/${painting.imageFileName}.jpg`} alt={painting.title} onClick={paintingModal} style={{height:'128px', width:'128px'}}/><br/>
+            <strong className="text-center max-w-32 w-32 p-1"><i className=''>{painting.title}</i></strong><br/>
+            <span className="text-center w-full">{`${artist.firstName} ${artist.lastName}`}</span><br/>
+            <span className="text-center w-full">{painting.yearOfWork}</span><br/>
+            <span className="text-center w-full">{gallery.galleryName}</span><br/>
+            <span className="text-center w-full">{painting.medium}</span><br/>
+            <span className="text-center w-full">{`${painting.width} x ${painting.height}`}</span>
         </div>
     )
 }

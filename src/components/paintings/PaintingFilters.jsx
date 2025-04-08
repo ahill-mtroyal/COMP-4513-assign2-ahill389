@@ -94,36 +94,33 @@ const PaintingFilters = (props)=>{
 
     //this should probably have been made with more sub-components - but its already here now
     return (
-        <div className='painting-filters-form'>
-            <h2>Painting Filters</h2>
+        <div className='flex flex-col w-full h-full items-center text-2xl p-10'>
+            <h2 className="font-bold">Painting List Filters</h2>
             {/* // title, artist, gallery, year (range) clear + filter button */}
-            <form onSubmit={(e)=>{e.preventDefault()}}>
+            <form className="flex flex-col space-y-3 h=full p-5" onSubmit={(e)=>{e.preventDefault()}}>
 
-                <div className='form-radio-option title-filter'>
-                    <label className='radio'>
+                <div className='grid grid-cols-2 grid-rows-1 gap-4'>
+                    <label className=''>
                         <input type='radio' name='painting-filter' value='titleRadio' onChange={radioChange} checked={radioState==="titleRadio"}></input>
-                        <span>Title</span>
+                        <span className="p-5">Title</span>
                     </label>
-                    <input type='text' name='title' disabled={!(radioState==='titleRadio')? true:false} onChange={e=>{setTitleState(e.target.value)}} value={!(radioState==='titleRadio')?"":titleState}></input>
-                    <br/>
+                    <input className="bg-white rounded-md w-50" type='text' name='title' disabled={!(radioState==='titleRadio')? true:false} onChange={e=>{setTitleState(e.target.value)}} value={!(radioState==='titleRadio')?"":titleState}></input>
                 </div>
 
-                <div className='form-radio-option artist-filter'>
+                <div className='grid grid-cols-2 grid-rows-1 gap-4'>
                     <label className='radio'>
                         <input type='radio' name='painting-filter' value='artistRadio' onChange={radioChange} checked={radioState==="artistRadio"}></input>
-                        <span>Artist</span>
+                        <span className="p-5">Artist</span>
                     </label>
-                    <input type='text' name='artist' disabled={!(radioState==='artistRadio')? true:false} onChange={e=>{setArtistState(e.target.value)}} value={!(radioState==='artistRadio')?"":artistState}></input>
-                    <br/>
+                    <input className="bg-white rounded-md w-50" type='text' name='artist' disabled={!(radioState==='artistRadio')? true:false} onChange={e=>{setArtistState(e.target.value)}} value={!(radioState==='artistRadio')?"":artistState}></input>
                 </div>
 
-                <div className='form-radio-option gallery-filter'>
+                <div className='grid grid-cols-2 grid-rows-1 gap-4'>
                     <label className='radio'>
                         <input type='radio' name='painting-filter' value='galleryRadio' onChange={radioChange} checked={radioState==="galleryRadio"}></input>
-                        <span>Gallery</span>
+                        <span className="p-5">Gallery</span>
                     </label>
-                    <input type='text' name='gallery' disabled={!(radioState==='galleryRadio')? true:false} onChange={e=>{setGalleryState(e.target.value)}} value={!(radioState==='galleryRadio')?"":galleryState}></input>
-                    <br/>
+                    <input className="bg-white rounded-md w-50" type='text' name='gallery' disabled={!(radioState==='galleryRadio')? true:false} onChange={e=>{setGalleryState(e.target.value)}} value={!(radioState==='galleryRadio')?"":galleryState}></input>
                 </div>
 
                 {/* <div className='form-radio-option genre-filter'>
@@ -135,29 +132,34 @@ const PaintingFilters = (props)=>{
                     <br/>
                 </div> */}
 
-                <div className='form-radio-option year-filter'>
+                <div className='grid grid-cols-2 grid-rows-1 gap-4'>
                     <label className='radio'>
                         <input type='radio' name='painting-filter' value='yearRadio' onChange={radioChange} checked={radioState==="yearRadio"}></input>
-                        <span>Year</span>
+                        <span className="p-5">Year</span>
                     </label>
-                    <input type='text' name='yearLow' disabled={!(radioState==='yearRadio')? true:false} onChange={e=>{setYearLowState(e.target.value)}} value={!(radioState==='yearRadio')?"":yearLowState}></input>
-                     - 
-                    <input type='text' name='yearHigh' disabled={!(radioState==='yearRadio')? true:false} onChange={e=>{setYearHighState(e.target.value)}} value={!(radioState==='yearRadio')?"":yearHighState}></input>
-                    <br/>
+                    <div>
+                        <input className="bg-white rounded-md w-18 mr-1" type='text' name='yearLow' disabled={!(radioState==='yearRadio')? true:false} onChange={e=>{setYearLowState(e.target.value)}} value={!(radioState==='yearRadio')?"":yearLowState}></input>
+                        -
+                        <input className="bg-white rounded-md w-18 ml-1" type='text' name='yearHigh' disabled={!(radioState==='yearRadio')? true:false} onChange={e=>{setYearHighState(e.target.value)}} value={!(radioState==='yearRadio')?"":yearHighState}></input>
+                    </div>
+                    
                 </div>
 
+                <div className="">
                 <Button buttonData={{
-                    classNames:'btn btn-submit-filter',
+                    classNames:'w-40 ml-1',
                     id: '',
                     handler: onFilter,
                     text: 'Filter'
                 }}/>
                 <Button buttonData={{
-                    classNames:'btn btn-clear-form',
+                    classNames:'w-40 ml-1',
                     id: '',
                     handler: onClear,
                     text: 'Clear'
                 }}/>
+                </div>
+                
                 
             </form>
         </div>

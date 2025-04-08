@@ -51,7 +51,7 @@ const GenresList = (props)=>{
     //build list items
     const listItems = list.map(i=>
         <li key={i.genreId}><Button buttonData={{
-            className:'btn btn-list',
+            classNames:'w-1/1 max-w-1/1 h-10 truncate',
             id:i.genreId,
             handler:selectGenre,
             text:i.genreName

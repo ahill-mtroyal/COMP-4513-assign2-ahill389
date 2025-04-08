@@ -22,10 +22,12 @@ const GenresInfo = (props)=>{
     }
 
     return(
-        <div className='genre-info'>
-            <h2>{selectedGenre.genreName}</h2>
-            <p><a href={selectedGenre.wikiLink}>Wikipedia</a></p>
-            <p><span className='genre-description'>{selectedGenre.description}</span></p>
+        <div className='relative text-center'>
+            <div className='flex flex-col h-full text-xl space-y-10  pt-5 '>
+                <h2 className="font-bold">{selectedGenre.genreName}</h2>
+                <p><a href={selectedGenre.wikiLink}>Wikipedia</a></p>
+                <p className='overflow-y-auto'><span>{selectedGenre.description}</span></p>
+            </div>
             <AddFavourite handler={addToFavourites} favourited={favourited} id={selectedGenre.genreId}/>
         </div>
     )

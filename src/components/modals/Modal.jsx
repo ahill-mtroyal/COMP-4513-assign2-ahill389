@@ -9,7 +9,7 @@ const Modal = (props)=>{
         setModal(null)
     }
     return(
-        <div className='modal-background'>
+        <div className='absolute w-full h-full bg-neutral-600/80'>
             <div className='modal'>
                 <Button buttonData={{
                     text: <img src={'http://localhost:5173/COMP-4513-assign2-ahill389/icons/x.png'}/>,

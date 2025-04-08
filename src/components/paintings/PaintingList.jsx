@@ -56,29 +56,32 @@ const PaintingList = (props)=>{
     }
 
     return(
-        <div className='painting-list'>
-            <h2>Paintings</h2>
-            <Button buttonData={{
-                handler:sortArtist,
-                text:'Artist',
-                classNames:'btn btn-sort'
-            }}/>
-            <Button buttonData={{
-                handler:sortTitle,
-                text:'Title',
-                classNames:'btn btn-sort'
-            }}/>
-            <Button buttonData={{
-                handler:sortGallery,
-                text:'Gallery',
-                classNames:'btn btn-sort'
-            }}/>
-            <Button buttonData={{
-                handler:sortYear,
-                text:'Year',
-                classNames:'btn btn-sort'
-            }}/>
-            <ul>
+        <div className='col-span-3 relative pt-15 border-l-2 border-l-neutral-400'>
+            <h2 className="font-bold text-2xl absolute top-4 left-20">Paintings</h2>
+            <div className="absolute top-3 right-3">
+                <Button buttonData={{
+                    handler:sortArtist,
+                    text:'Artist',
+                    classNames:'m-0.25 w-20 h-10'
+                }}/>
+                <Button buttonData={{
+                    handler:sortTitle,
+                    text:'Title',
+                    classNames:'m-0.25 w-20 h-10'
+                }}/>
+                <Button buttonData={{
+                    handler:sortGallery,
+                    text:'Gallery',
+                    classNames:'m-0.25 w-20 h-10'
+                }}/>
+                <Button buttonData={{
+                    handler:sortYear,
+                    text:'Year',
+                    classNames:'m-0.25 w-20 h-10'
+                }}/>
+            </div>
+            
+            <ul className='h-full pl-5 pr-5 flex flex-wrap justify-center overflow-y-auto'>
                 {listItems}
             </ul>
         </div>

@@ -23,7 +23,7 @@ const ArtistInfo = (props)=>{
     }
 
     return(
-        <div className='artist-info'>
+        <div className='relative text-center'>
             <ArtistsInfoCard />
             <AddFavourite handler={addToFavourites} favourited={favourited} id={selectedArtist.artistId}/>
         </div>

@@ -6,13 +6,13 @@ const AddFavourite = (props)=>{
 
     const favourited = props.favourited
 
-    const icon = <img src={favourited?'COMP-4513-assign2-ahill389/icons/favouriteIconSelected.png':'COMP-4513-assign2-ahill389/icons/favouriteIcon.png'} className='icon' alt='favourite'/>
+    const icon = <img src={favourited?'COMP-4513-assign2-ahill389/icons/favouriteIconSelected.png':'COMP-4513-assign2-ahill389/icons/favouriteIcon.png'} className='size-10' alt='favourite'/>
 
     return (
         <Button buttonData={{
             text: icon,
             handler: props.handler,
-            className: 'btn btn-favourite',
+            classNames: 'absolute top-5 right-5',
             id: props.id
         }}/>
     )
