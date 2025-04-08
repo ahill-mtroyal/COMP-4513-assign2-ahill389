@@ -13,6 +13,7 @@ const Gallery = (props)=>{
             <GalleryList />
             {selectedGallery && <GalleryInfo />}
             {selectedGallery && <PaintingList />}
+            {!selectedGallery&&<h2>Select A Gallery</h2>}
         </article>
     )
 }

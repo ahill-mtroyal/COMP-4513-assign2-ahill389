@@ -7,15 +7,12 @@ const supaAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const db = createClient(supaUrl, supaAnonKey);
 
 async function getAllData(setters){
-    setters.loading(true)
     console.log(`data loading`)
     getArtists(setters.artists)
     getGalleries(setters.galleries,setters.loading)
     getGenres(setters.genres)
     getPaintings(setters.paintings)
     getPaintingGenres(setters.paintingGenres)
-    console.log(`data loaded`)
-    setters.loading(false)
 }
 
 //fetch functions - if data not in local storage

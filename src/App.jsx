@@ -7,25 +7,26 @@ import Artists from './components/artists/Artists'
 import Genres from './components/genres/Genres'
 import Paintings from './components/paintings/Paintings'
 import Login from './Login'
-import Modal from './components/modals/Modal'
+import Spinner from './modules/Spinner'
 
 export const Context = createContext([]);
 
 function App() {
-  const [artists, setArtists] = useState([])
+  const [artists, setArtists] = useState(null)
   const [selectedArtist, setSelectedArtist] = useState(null)
   const [artistsFavourites, setArtistsFavourites] = useState([])
-  const [galleries, setGalleries] = useState([])
+  const [galleries, setGalleries] = useState(null)
   const [selectedGallery, setSelectedGallery] = useState(null)
   const [galleryFavourites, setGalleryFavourites] = useState([])
-  const [genres, setGenres] = useState([])
+  const [genres, setGenres] = useState(null)
   const [selectedGenre, setSelectedGenre] = useState(null)
   const [genresFavourites, setGenresFavourites] = useState([])
-  const [paintings, setPaintings] = useState([])
+  const [paintings, setPaintings] = useState(null)
   const [paintingGenres, setPaintingGenres] = useState([])
   const [selectedPaintings, setSelectedPaintings] = useState([])
+  const [selectedPainting, setSelectedPainting] = useState([])
   const [paintingFavourites, setPaintingFavourites] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [loggedIn, setLoggedIn] = useState(false)
   const [pageView,setPageView] = useState('Galleries')
   const [modal,setModal] = useState(null)
@@ -45,6 +46,7 @@ function App() {
     paintings:[paintings, setPaintings],
     paintingGenres:[paintingGenres, setPaintingGenres],
     selectedPaintings:[selectedPaintings, setSelectedPaintings],
+    selectedPainting:[selectedPainting, setSelectedPainting],
     paintingFavourites:[paintingFavourites, setPaintingFavourites],
     loading:[loading, setLoading],
     loggedIn:[loggedIn,setLoggedIn],
@@ -55,25 +57,37 @@ function App() {
   //data fetching
   localStorage.clear(); //testing
   useEffect(()=>{
-    //get all data, passing all setters labeled in an obj, and data loading setter
-    getAllData({artists:setArtists,
-      galleries:setGalleries,
-      genres:setGenres,
-      paintings:setPaintings,
-      paintingGenres:setPaintingGenres,
-      loading:setLoading})
-  }, []);
+    //check logged in
+    if (loggedIn){
+      //get all data, passing all setters labeled in an obj, and data loading setter
+      getAllData({artists:setArtists,
+        galleries:setGalleries,
+        genres:setGenres,
+        paintings:setPaintings,
+        paintingGenres:setPaintingGenres,
+        loading:setLoading})
+    }
+  }, [loggedIn]);
+
+  //loading spinner - updates loading state once all data is received.
+  useEffect(()=>{
+    if (artists&&galleries&&genres&&paintings){
+      // setLoading(false)
+      console.log('data loaded')
+    }
+  },[artists,galleries,genres,paintings])
 
   return(
     <main>
     <Context.Provider value={contextObj}>
       {modal&&modal}
       {!(loggedIn) && <Login />}
-      {loggedIn && <Toolbar />}
-      {loggedIn&&pageView==="Artists" && <Artists />}
-      {loggedIn&&pageView==="Paintings" && <Paintings />}
-      {loggedIn&&pageView==="Galleries" && <Gallery />}
-      {loggedIn&&pageView==="Genres" && <Genres />}
+      {loggedIn&& <Toolbar />}
+      {loggedIn&&pageView==="Artists"&&!loading&& <Artists />}
+      {loggedIn&&pageView==="Paintings"&&!loading&& <Paintings />}
+      {loggedIn&&pageView==="Galleries"&&!loading&& <Gallery />}
+      {loggedIn&&pageView==="Genres"&&!loading&& <Genres />}
+      {loading&&loggedIn&&<Spinner />}
     </Context.Provider>
     </main>
   )

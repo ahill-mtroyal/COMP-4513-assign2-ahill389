@@ -3,7 +3,7 @@ import { useContext,useEffect } from "react";
 import { Context } from "../../App";
 import Modal from "./Modal";
 import Button from "../Button";
-import PaintingList from "../paintings/PaintingList";
+import PaintingListModal from "../paintings/PaintingListModal";
 
 const ModalFavourites = (props)=>{
     const [artistsFavourites, setArtistsFavourites] = useContext(Context).artistsFavourites
@@ -94,6 +94,7 @@ const ModalFavourites = (props)=>{
     }
 
     const removeFavouritePainting = e=>{
+        console.log(`Removing ${e.currentTarget.value}`)
         const id = e.currentTarget.value
         const newFavourites = [...paintingFavourites].filter(p=>p.paintingId!=id)
         setPaintingFavourites(newFavourites)
@@ -189,7 +190,7 @@ const ModalFavourites = (props)=>{
                     <ReversibleList handler={reverseGenre} header={'Genres'} listItems={genreItems}/>
                 </div>
                 <div className="painting-list">
-                    <PaintingList />
+                    <PaintingListModal remove={removeFavouritePainting}/>
                 </div>
             </div>
         )
