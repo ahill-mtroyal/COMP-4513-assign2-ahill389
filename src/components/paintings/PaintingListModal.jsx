@@ -7,9 +7,9 @@ const PaintingListModal = (props)=>{
     const [paintingFavourites, setPaintingFavourites] = useContext(Context).paintingFavourites
     const icon = <img src='COMP-4513-assign2-ahill389/icons/x.png' style={{width:'16px',height:'16px'}} className='icon-small' alt='remove'/>
     const listItems = paintingFavourites.map(p=>
-        <li key={p.paintingId}>
+        <li className="relative" key={p.paintingId}>
             <Button buttonData={{
-                classNames:'btn btn-remove',
+                classNames:'absolute top-1 right-5',
                 id:p.paintingId,
                 handler:props.remove,
                 text:icon
@@ -19,8 +19,8 @@ const PaintingListModal = (props)=>{
     )
 
     return(
-        <div className='painting-list'>
-            <h2>Paintings</h2>
+        <div className='flex flex-col p-2 items-center overflow-y-auto min-w-50 text-center'>
+            <h3 className='font-bold'>Paintings</h3>
             <ul>
                 {listItems}
             </ul>

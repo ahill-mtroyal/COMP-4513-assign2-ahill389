@@ -43,7 +43,7 @@ const Nav = (props)=>{
             <Button buttonData={paintings}/>
             <Button buttonData={galleries}/>
             <Button buttonData={genres}/>
-            <button className='bg-black text-neutral-300 hover:text-white p-1 m-0.25 rounded-md transition delay-10 w-25 h-10' onClick={favouriteModal} disabled={disabled}>
+            <button className='bg-black text-neutral-300 hover:text-white p-1 m-0.25 rounded-md transition delay-10 w-25 h-10  disabled:bg-neutral-500' onClick={favouriteModal} disabled={disabled}>
                 {'Favourites'}
             </button>
             {/* <Button buttonData={about}/> */}

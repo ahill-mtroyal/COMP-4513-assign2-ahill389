@@ -8,7 +8,7 @@ const ModalPainting = (props)=>{
     const painting = selectedPainting
     const content = ()=>{
         return(
-            <div className='modal-content'>
+            <div className='h-full w-full'>
                 <PaintingCard />
             </div>
         )

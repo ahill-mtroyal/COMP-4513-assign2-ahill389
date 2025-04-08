@@ -123,16 +123,16 @@ const ModalFavourites = (props)=>{
 
     //list items
     const artistItems = artistsFavourites.map(i=>
-        <li key={i.artistId}>
+        <li className='relative' key={i.artistId}>
         <Button buttonData={{
-            classNames:'btn btn-list',
+            classNames:'w-5/6 max-w-full flex justify-center',
             id:i.artistId,
             handler:artistView,
             text:`${i.firstName} ${i.lastName}`
         }
         }/>
         <Button buttonData={{
-            classNames:'btn btn-remove',
+            classNames:'absolute right-1 bottom-1',
             id:i.artistId,
             handler:removeFavouriteArtist,
             text:icon
@@ -140,16 +140,16 @@ const ModalFavourites = (props)=>{
         </li>
     )
     const galleryItems = galleryFavourites.map(i=>
-        <li key={i.galleryId}>
+        <li className='relative' key={i.galleryId}>
         <Button buttonData={{
-            classNames:'btn btn-list',
+            classNames:'w-5/6 max-w-full flex justify-center',
             id:i.galleryId,
             handler:galleryView,
             text:i.galleryName
         }
         }/>
         <Button buttonData={{
-            classNames:'btn btn-remove',
+            classNames:'absolute right-1 bottom-1',
             id:i.galleryId,
             handler:removeFavouriteGallery,
             text:icon
@@ -157,18 +157,35 @@ const ModalFavourites = (props)=>{
         </li>
     )
     const genreItems = genresFavourites.map(i=>
-        <li key={i.genreId}>
+        <li className='relative' key={i.genreId}>
         <Button buttonData={{
-            classNames:'btn btn-list',
+            classNames:'w-5/6 max-w-full flex justify-center',
             id:i.genreId,
             handler:genreView,
             text:i.genreName
         }
         }/>
         <Button buttonData={{
-            classNames:'btn btn-remove',
+            classNames:'absolute right-1 bottom-1',
             id:i.genreId,
             handler:removeFavouriteGenre,
+            text:icon
+        }}/>
+        </li>
+    )
+
+    const paintingItems = paintingFavourites.map(i=>
+        <li className='relative' key={i.paintingId}>
+        <Button buttonData={{
+            classNames:'w-5/6 max-w-full flex justify-center',
+            id:i.paintingId,
+            text:i.title
+        }
+        }/>
+        <Button buttonData={{
+            classNames:'absolute right-1 bottom-1',
+            id:i.paintingId,
+            handler:removeFavouritePainting,
             text:icon
         }}/>
         </li>
@@ -176,20 +193,23 @@ const ModalFavourites = (props)=>{
    
     const content = ()=>{
         return(
-            <div className='modal-content'>
-                <h2>Favourites</h2><br/>
-                <div className="artist-list">
-                    <ReversibleList handler={reverseArtists} header={'Artists'} listItems={artistItems}/>
+            <div className='flex flex-col min-w-200 h-1/1 bg-white rounded-xl'>
+                <h2 className=" w-full h-20 text-center font-bold text-3xl mt-5 border-b-1 ">Favourites</h2><br/>
+                <div className="row-start-2 grid grid-cols-4 h-1/1">
+                    <div className="relative min-w-40 w-full">
+                        <ReversibleList handler={reverseArtists} header={'Artists'} listItems={artistItems}/>
+                    </div>
+                    <div className="relative min-w-40 w-full h-full">
+                        <ReversibleList handler={reverseGallery} header={'Galleries'} listItems={galleryItems}/>
+                    </div>
+                    <div className="relative min-w-40 w-full h-full">
+                        <ReversibleList handler={reverseGenre} header={'Genres'} listItems={genreItems}/>
+                    </div>
+                    <div className="relative min-w-40 w-full h-full">
+                        <ReversibleList handler={paintingReverse} header={'Paintings'} listItems={paintingItems}/>
+                    </div>
                 </div>
-                <div className="gallery-list">
-                    <ReversibleList handler={reverseGallery} header={'Galleries'} listItems={galleryItems}/>
-                </div>
-                <div className="genre-list">
-                    <ReversibleList handler={reverseGenre} header={'Genres'} listItems={genreItems}/>
-                </div>
-                <div className="painting-list">
-                    <PaintingListModal remove={removeFavouritePainting}/>
-                </div>
+                
             </div>
         )
     }
