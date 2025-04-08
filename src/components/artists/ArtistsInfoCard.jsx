@@ -6,7 +6,7 @@ const ArtistsInfoCard = (props)=>{
     return(
         <div className='flex flex-col h-full text-xl space-y-10  pt-5 '>
             <h2 className="font-bold">{`${selectedArtist.firstName} ${selectedArtist.lastName}`}</h2>
-            <img className="rounded-lg" src={`COMP-4513-assign2-ahill389/artists/square/${selectedArtist.artistId}.jpg`} alt={`${selectedArtist.firstName} ${selectedArtist.lastName}`}/>
+            <img className="rounded-lg" src={`/artists/square/${selectedArtist.artistId}.jpg`} alt={`${selectedArtist.firstName} ${selectedArtist.lastName}`}/>
             <p>{`${selectedArtist.yearOfBirth} - ${selectedArtist.yearOfDeath}`}</p>
             <p>{selectedArtist.nationality}</p>
             <p>{selectedArtist.gender=='M'? 'Male': 'Female'}</p>
