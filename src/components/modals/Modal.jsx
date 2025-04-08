@@ -12,7 +12,7 @@ const Modal = (props)=>{
         <div className='modal-background'>
             <div className='modal'>
                 <Button buttonData={{
-                    text: <img src={'/icons/x.png'}/>,
+                    text: <img src={'http://localhost:5173/COMP-4513-assign2-ahill389/icons/x.png'}/>,
                     handler:closeModal
                 }}/>
                 {<props.content />}

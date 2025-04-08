@@ -9,7 +9,7 @@ const Artists = (props)=>{
     const [selectedArtist, setSelectedArtist] = useContext(Context).selectedArtist
 
     return(
-        <article className='artist-view'>
+        <article className='artist-view '>
             <ArtistList />
             {selectedArtist && <ArtistInfo />}
             {selectedArtist && <PaintingList />}

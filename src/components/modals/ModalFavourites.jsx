@@ -119,7 +119,7 @@ const ModalFavourites = (props)=>{
     }
 
     //for remove buttons
-    const icon = <img src='/icons/x.png' style={{width:'16px',height:'16px'}} className='icon-small' alt='remove'/>
+    const icon = <img src='COMP-4513-assign2-ahill389/icons/x.png' style={{width:'16px',height:'16px'}} className='icon-small' alt='remove'/>
 
     //list items
     const artistItems = artistsFavourites.map(i=>

@@ -5,8 +5,8 @@ import { Context } from "./App"
 const Login = (props)=>{
     const [loggedIn, setLoggedIn] = useContext(Context).loggedIn
     return(
-        <div className='login-form'>
-            <form onSubmit={(e)=>{e.preventDefault()}}>
+        <div className="flex justify-center items-center">
+            <form onSubmit={(e)=>{e.preventDefault()}} className="bg-white/50">
                 <label>
                     Username:
                     <input type='text'></input>

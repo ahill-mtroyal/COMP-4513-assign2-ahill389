@@ -78,7 +78,7 @@ function App() {
   },[artists,galleries,genres,paintings])
 
   return(
-    <main>
+    <main className="grid grid-cols-1 grid-rows-2 gap-4 h-9/10 w-4/5 text-white">
     <Context.Provider value={contextObj}>
       {modal&&modal}
       {!(loggedIn) && <Login />}

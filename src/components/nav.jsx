@@ -30,7 +30,7 @@ const Nav = (props)=>{
         setModal(<ModalFavourites />)
     }
 
-    const artists = new ButtonData('Artists',swapView,'btn-nav')
+    const artists = new ButtonData('Artists',swapView,'')
     const paintings = new ButtonData('Paintings',swapView,'btn-nav')
     const galleries = new ButtonData('Galleries',swapView,'btn-nav')
     const genres = new ButtonData('Genres',swapView,'btn-nav')
@@ -43,7 +43,7 @@ const Nav = (props)=>{
             <Button buttonData={paintings}/>
             <Button buttonData={galleries}/>
             <Button buttonData={genres}/>
-            <button className='btn btn-nav' onClick={favouriteModal} disabled={disabled}>
+            <button className='bg-black text-neutral-300 hover:text-white p-1 m-0 rounded-md transition delay-10' onClick={favouriteModal} disabled={disabled}>
                 {'Favourites'}
             </button>
             {/* <Button buttonData={about}/> */}

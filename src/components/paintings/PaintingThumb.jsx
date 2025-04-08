@@ -18,7 +18,7 @@ const PaintingThumb = (props)=>{
 
     return(
         <div className='painting-card-small'>
-            <img className='painting-thumb' src={`/paintings/square/${painting.imageFileName}.jpg`} alt={painting.title} onClick={paintingModal} style={{height:'100px', width:'100px'}}/><br/>
+            <img className='painting-thumb' src={`COMP-4513-assign2-ahill389/paintings/square/${painting.imageFileName}.jpg`} alt={painting.title} onClick={paintingModal} style={{height:'100px', width:'100px'}}/><br/>
             <strong><i>{painting.title}</i></strong><br/>
             <span>{`${artist.firstName} ${artist.lastName}`}</span><br/>
             <span>{painting.yearOfWork}</span><br/>
