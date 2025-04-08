@@ -5,8 +5,7 @@ import Nav from "./Nav";
 const Toolbar = (props)=>{
 
     return(
-        <div className="flex justify-between">
-            <img src={null} alt="logo-img" className="logo"/>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-wrap justify-around w-1/2">
             <header>Comp 4513 Assignment 2</header>
             <Nav/>
         </div>

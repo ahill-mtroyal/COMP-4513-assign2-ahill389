@@ -5,15 +5,15 @@ import { Context } from "./App"
 const Login = (props)=>{
     const [loggedIn, setLoggedIn] = useContext(Context).loggedIn
     return(
-        <div className="flex justify-center items-center">
-            <form onSubmit={(e)=>{e.preventDefault()}} className="bg-white/50">
+        <div className='flex items-center justify-center w-screen h-screen'>
+            <form onSubmit={(e)=>{e.preventDefault()}} className="flex flex-col items-center bg-white/50 p-5 rounded-lg space-x-8 text-shadow-lg">
                 <label>
-                    Username:
-                    <input type='text'></input>
+                    <span>Username:</span>
+                    <input type='text' className="m-5 outline-2 rounded-sm"></input>
                 </label><br/>
                 <label>
-                    Password:
-                    <input type='password'></input>
+                    <span>Password:</span> 
+                    <input type='password' className="m-5 outline-2 rounded-sm"></input>
                 </label><br/>
                 <Button buttonData={{
                     className:'btn btn-login',

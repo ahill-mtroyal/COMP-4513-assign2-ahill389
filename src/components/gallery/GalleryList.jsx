@@ -50,7 +50,7 @@ const GalleryList = (props)=>{
     //build list items
     const listItems = list.map(i=>
         <li key={i.galleryId}><Button buttonData={{
-            className:'btn btn-list',
+            classNames:'w-1/1 max-w-1/1 h-10 truncate',
             id:i.galleryId,
             handler:selectGallery,
             text:i.galleryName

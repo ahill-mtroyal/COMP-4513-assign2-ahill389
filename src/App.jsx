@@ -78,7 +78,7 @@ function App() {
   },[artists,galleries,genres,paintings])
 
   return(
-    <main className="grid grid-cols-1 grid-rows-2 gap-4 h-9/10 w-4/5 text-white">
+    <main className="text-white flex items-center justify-center h-screen w-screen">
     <Context.Provider value={contextObj}>
       {modal&&modal}
       {!(loggedIn) && <Login />}
@@ -89,6 +89,7 @@ function App() {
       {loggedIn&&pageView==="Genres"&&!loading&& <Genres />}
       {loading&&loggedIn&&<Spinner />}
     </Context.Provider>
+    <a href="https://unsplash.com/photos/black-textile-PWf-Dr2qpOo" className="absolute bottom-0 right-0">https://unsplash.com/photos/black-textile-PWf-Dr2qpOo</a>
     </main>
   )
 
