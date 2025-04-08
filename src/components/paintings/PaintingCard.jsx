@@ -31,7 +31,7 @@ const PaintingCard = (props)=>{
     return(
         <div className='flex w-full h-full'>
             <div className="h=full w-full">
-                <img className='h-full w-full object-contain' src={`/paintings/full/${painting.imageFileName}.jpg`} alt={painting.title} />
+                <img className='h-full w-full object-contain' src={`https://ahill-mtroyal.github.io/COMP-4513-assign2-ahill389/paintings/full/${painting.imageFileName}.jpg`} alt={painting.title} />
             </div>
             
             <div className='flex flex-col w-1/2 space-y-2 p-3 border-1 pt-10 bg-white'>

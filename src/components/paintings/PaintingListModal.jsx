@@ -5,7 +5,7 @@ import Button from "../Button"
 
 const PaintingListModal = (props)=>{
     const [paintingFavourites, setPaintingFavourites] = useContext(Context).paintingFavourites
-    const icon = <img src='COMP-4513-assign2-ahill389/icons/x.png' style={{width:'16px',height:'16px'}} className='icon-small' alt='remove'/>
+    const icon = <img src='https://ahill-mtroyal.github.io/COMP-4513-assign2-ahill389/icons/x.png' style={{width:'16px',height:'16px'}} className='icon-small' alt='remove'/>
     const listItems = paintingFavourites.map(p=>
         <li className="relative" key={p.paintingId}>
             <Button buttonData={{
